@@ -24,8 +24,8 @@ public class CustomTutorialSupportFragment extends TutorialSupportFragment
         implements OnTutorialPageChangeListener {
 
     private static final String TAG = "CustomTutorialSFragment";
-    private static final int TOTAL_PAGES = 3;
-    private static final int ACTUAL_PAGES_COUNT = 3;
+    private static final int TOTAL_PAGES = 4;
+    private static final int ACTUAL_PAGES_COUNT = 4;
 
     private final View.OnClickListener mOnSkipClickListener = new View.OnClickListener() {
         @Override
@@ -88,6 +88,18 @@ public class CustomTutorialSupportFragment extends TutorialSupportFragment
                             TransformItem.create(R.id.ivSeventhImage, Direction.LEFT_TO_RIGHT, 0.14f)
                     };
                     break;
+                }case 3:{
+                    pageLayoutResId=R.layout.fragment_page_four;
+                    tutorialItems = new TransformItem[]{
+                            TransformItem.create(R.id.ivFirstImage, Direction.RIGHT_TO_LEFT, 0.2f),
+                            TransformItem.create(R.id.ivSecondImage, Direction.LEFT_TO_RIGHT, 0.06f),
+                            TransformItem.create(R.id.ivThirdImage, Direction.RIGHT_TO_LEFT, 0.08f),
+                            TransformItem.create(R.id.ivFourthImage, Direction.LEFT_TO_RIGHT, 0.1f),
+                            TransformItem.create(R.id.ivFifthImage, Direction.LEFT_TO_RIGHT, 0.03f),
+                            TransformItem.create(R.id.ivSixthImage, Direction.LEFT_TO_RIGHT, 0.09f),
+                            TransformItem.create(R.id.ivSeventhImage, Direction.LEFT_TO_RIGHT, 0.14f)
+                    };
+                    break;
                 }
                 default: {
                     throw new IllegalArgumentException("Unknown position: " + position);
@@ -110,6 +122,8 @@ public class CustomTutorialSupportFragment extends TutorialSupportFragment
                     return new SecondCustomPageSupportFragment();
                 case 2:
                     return new ThirdCustomPageSupportFragment();
+                case 3:
+                    return new FourCustomPageSupportFragment();
                 default: {
                     throw new IllegalArgumentException("Unknown position: " + position);
                 }
@@ -135,6 +149,8 @@ public class CustomTutorialSupportFragment extends TutorialSupportFragment
         addOnTutorialPageChangeListener(this);
     }
 
+
+    //设置指示器
     @Override
     protected TutorialOptions provideTutorialOptions() {
         return newTutorialOptionsBuilder(getContext())
@@ -167,17 +183,4 @@ public class CustomTutorialSupportFragment extends TutorialSupportFragment
         }
     }
 
-    public void onResume() {
-        super.onResume();
-//        MobclickAgent.onPageStart(getUmengFragmentName()); //统计页面，"MainScreen"为页面名称，可自定义
-    }
-    public void onPause() {
-        super.onPause();
-//        MobclickAgent.onPageEnd(getUmengFragmentName());
-    }
-
-    public String getUmengFragmentName(){
-        return getContext().getClass().getSimpleName()+"-"
-                +this.getClass().getSimpleName();
-    };
 }

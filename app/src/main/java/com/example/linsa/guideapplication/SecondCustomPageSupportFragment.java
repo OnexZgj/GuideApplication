@@ -27,17 +27,5 @@ public class SecondCustomPageSupportFragment extends PageSupportFragment {
 				TransformItem.create(R.id.ivEighthImage, Direction.LEFT_TO_RIGHT, 0.07f)
 		};
 	}
-	public void onResume() {
-		super.onResume();
-//		MobclickAgent.onPageStart(getUmengFragmentName()); //统计页面，"MainScreen"为页面名称，可自定义
-	}
-	public void onPause() {
-		super.onPause();
-//		MobclickAgent.onPageEnd(getUmengFragmentName());
-	}
 
-	public String getUmengFragmentName(){
-		return getContext().getClass().getSimpleName()+"-"
-				+this.getClass().getSimpleName();
-	};
 }
