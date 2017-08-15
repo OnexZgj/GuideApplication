@@ -89,16 +89,4 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 .replace(R.id.container_welcome, new CustomTutorialSupportFragment())
                 .commit();
     }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-//        MobclickAgent.onPause(this);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-//        MobclickAgent.onResume(this);
-    }
 }

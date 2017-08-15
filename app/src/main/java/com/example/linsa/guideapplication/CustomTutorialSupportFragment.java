@@ -27,12 +27,12 @@ public class CustomTutorialSupportFragment extends TutorialSupportFragment
     private static final int TOTAL_PAGES = 4;
     private static final int ACTUAL_PAGES_COUNT = 4;
 
+
+    //对应的View进行的点击事件
     private final View.OnClickListener mOnSkipClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-//            Toast.makeText(getContext(), "Skip button clicked", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(getActivity(), MainActivity.class));
-//            SPUtils.put(getActivity(), Const.FIRST_OPEN, true);
             getActivity().finish();
         }
     };
